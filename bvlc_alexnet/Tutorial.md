@@ -1,49 +1,51 @@
 ## 1. 准备数据集 
 * 路径：`$path/to/dataset/dataset_name`
 * 结构：
-|-train
-    |-classname1
-        |-filename1.jpg
-        |-filename2.jpg
-        ...
-    |-classname1
-        |-filename1.jpg
-        |-filename2.jpg
-        ...
-    ...
-|-val
-    |-classname1
-        |-filename1.jpg
-        |-filename2.jpg
-        ...
-    |-classname1
-        |-filename1.jpg
-        |-filename2.jpg
-        ...
-    ...
-|-train.txt(图片路径+空格+对应类别下标(从0开始)，见3)
-|-val.txt
-|-imagenet_mean.binaryproto(均值文件，见3)
+|-train  
+    |-classname1  
+        |-filename1.jpg  
+        |-filename2.jpg  
+        ...  
+    |-classname1  
+        |-filename1.jpg  
+        |-filename2.jpg  
+        ...  
+    ...  
+|-val  
+    |-classname1  
+        |-filename1.jpg  
+        |-filename2.jpg  
+        ...  
+    |-classname1  
+        |-filename1.jpg  
+        |-filename2.jpg  
+        ...  
+    ...  
+|-train.txt(图片路径+空格+对应类别下标(从0开始)，见3)  
+|-val.txt  
+|-imagenet_mean.binaryproto(均值文件，见3)  
+* 整理好train和val目录结构后可用[这个代码](../utils/generate_labels.py)生成train.txt和val.txt  
 
 ## 2.数据转换成lmdb格式  
 * `cd $CAFFE_ROOT`
 * `mkdir examples/imgsnet`
 * `cp examples/imagenet/create_imagenet.sh examples/imgsnet/`
 * revise create_imagenet.sh
-    >EXAMPLE=/home/blabla/caffe/examples/imgsnet/ //刚才新建的文件夹
-    >DATA=/home/blabla/caffe/examples/imgs/data/ //存放图片数据的文件夹
-    >TRAIN_DATA_ROOT=/home/blabla/dataset_name/train //训练图片文件夹
-    >VAL_DATA_ROOT=/home/blabla/dataset_name//val //测试图片文件夹
-    >RESIZE=true //让图片resize 为同样大小，下面大小自己修改就行。 
-* `./examples/imgsnet/create_imagenet.sh`,会在$EXAMPLE里生成2个LMDB文件 
+    >EXAMPLE=/home/blabla/caffe/examples/imgsnet/ //刚才新建的文件夹  
+    >DATA=/home/blabla/caffe/examples/imgs/data/ //存放图片数据的文件夹  
+    >TRAIN_DATA_ROOT=/home/blabla/dataset_name/train //训练图片文件夹  
+    >VAL_DATA_ROOT=/home/blabla/dataset_name//val //测试图片文件夹  
+    >RESIZE=true //让图片resize 为同样大小，下面大小自己修改就行。   
+* `./examples/imgsnet/create_imagenet.sh`,会在$EXAMPLE里生成2个LMDB文件   
 
 ## 3.生成均值文件  
 * `cd $CAFFE_ROOT`
 * `cp examples/imagenet/make_imagenet_mean.sh examples/imgsnet/`
 * revise make_imagenet_maen.sh
-    >EXAMPLE=/home/blabla/caffe/examples/imgsnet/ //刚才新建的文件夹
-    >DATA=/home/blabla/caffe/examples/imgs/data/ //存放图片数据的文件夹
-* `./examples/imgsnet/make_imagenet_mean.sh`,会在$DATA里生成.binaryproto均值文件
+    >EXAMPLE=/home/blabla/caffe/examples/imgsnet/ //刚才新建的文件夹  
+    >DATA=/home/blabla/caffe/examples/imgs/data/ //存放图片数据的文件夹  
+* `./examples/imgsnet/make_imagenet_mean.sh`,会在$DATA里生成.binaryproto均值文件  
+* 如有需要，可以用[这个代码](../utils/read_mean.py)读取.binaryproto均值文件  
 
 ## 4.配置网络
 * `cd $CAFFE_ROOT`
