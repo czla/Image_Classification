@@ -7,7 +7,7 @@
 * Modify Net architecture and solver file/定义网络结构及求解文件
 * Training and Testing/训练和测试
 
-**For detail informations, please refer to `bvlc_alexnet/reference.md`**  
+**For detail informations, please refer to `[Here](bvlc/reference.md)`**  
 
 #### Test result
 ![result](./result.jpg)
