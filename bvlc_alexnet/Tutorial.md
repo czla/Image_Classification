@@ -1,26 +1,27 @@
+# Image Classification Tutorial using CAFFE/使用CAFFE进行图像分类教程
 ## 1. 准备数据集 
 * 路径：`$path/to/dataset/dataset_name`
 * 结构：
 |-train  
-    |-classname1  
-        |-filename1.jpg  
-        |-filename2.jpg  
-        ...  
-    |-classname1  
-        |-filename1.jpg  
-        |-filename2.jpg  
-        ...  
-    ...  
+&ensp;&ensp;  |-classname1  
+&ensp;&ensp;  |-filename1.jpg  
+&ensp;&ensp;  |-filename2.jpg  
+&ensp;&ensp;        ...  
+&ensp;    |-classname1  
+&ensp;&ensp;    |-filename1.jpg  
+&ensp;&ensp;        |-filename2.jpg  
+&ensp;&ensp;        ...  
+&ensp;&ensp;    ...  
 |-val  
-    |-classname1  
-        |-filename1.jpg  
-        |-filename2.jpg  
-        ...  
-    |-classname1  
-        |-filename1.jpg  
-        |-filename2.jpg  
-        ...  
-    ...  
+&ensp;    |-classname1  
+&ensp;&ensp;        |-filename1.jpg  
+&ensp;&ensp;        |-filename2.jpg  
+&ensp;&ensp;        ...  
+&ensp;    |-classname1  
+&ensp;&ensp;        |-filename1.jpg  
+&ensp;&ensp;        |-filename2.jpg  
+&ensp;&ensp;        ...  
+&ensp;&ensp;    ...  
 |-train.txt(图片路径+空格+对应类别下标(从0开始)，见3)  
 |-val.txt  
 |-imagenet_mean.binaryproto(均值文件，见3)  
