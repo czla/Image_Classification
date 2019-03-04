@@ -1,0 +1,4 @@
+*lmdb
+*.caffemodel
+*.solverstate
+bvlc_alexnet/test/*.jpg

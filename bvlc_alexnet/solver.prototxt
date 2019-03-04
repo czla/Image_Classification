@@ -1,0 +1,14 @@
+net: "/home/tjcv/zlchen/Project/caffe/examples/imgsnet/bvlc_alexnet/train_val.prototxt"
+test_iter: 160
+test_interval: 5000
+base_lr: 0.001
+lr_policy: "step"
+gamma: 0.1
+stepsize: 100000
+display: 20
+max_iter: 20000
+momentum: 0.9
+weight_decay: 0.0005
+snapshot: 5000
+snapshot_prefix: "/home/tjcv/zlchen/Project/caffe/examples/imgsnet/bvlc_alexnet/caffe_alexnet_train"
+solver_mode: GPU

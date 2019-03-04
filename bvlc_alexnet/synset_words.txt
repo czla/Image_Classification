@@ -1,0 +1,12 @@
+Apple___Apple_scab
+Corn_(maize)___Cercospora_leaf_spot_Gray_leaf_spot
+Corn_(maize)___healthy
+Grape___healthy
+Grape___Leaf_blight_(Isariopsis_Leaf_Spot)
+Peach___Bacterial_spot
+Peach___healthy
+Pepper_bell___Bacterial_spot
+Pepper_bell___healthy
+Raspberry___healthy
+Tomato___healthy
+Tomato___Late_blight
