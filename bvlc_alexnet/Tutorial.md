@@ -87,7 +87,7 @@
 ## 7.如何从train_val.prototxt中得到配置文件deploy.prototxt?  
 * 复制train_val.prototxt  
 * 删除前面几层数据输入层(没有bottom字段的就是)，设置自己的data层为：  
-> name: "<the name in the train_val.prototxt>"  
+> name: "the name in the train_val.prototxt"  
 > input: "data"  
 > input_dim: 10  
 > input_dim: 3  
@@ -101,7 +101,7 @@
 > &emsp;   top: "data"  
 > &emsp;   input_param {shape: {dim: 1 dim:3 dim:299 dim:299}}  
 >}  
-* 删除所有需要学习的参数，如：  
+* 删除所有需要学习的参数，删除时注意{}，如：  
     - blobs_lr  
     - weight_decay  
     - weight_filler  
