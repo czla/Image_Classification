@@ -1,6 +1,6 @@
 net: "/home/tjcv/zlchen/Project/caffe/examples/imgsnet/bvlc_alexnet/train_val.prototxt"
-test_iter: 160
-test_interval: 5000
+#test_iter: 160
+#test_interval: 5000
 base_lr: 0.001
 lr_policy: "step"
 gamma: 0.1

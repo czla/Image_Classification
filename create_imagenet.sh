@@ -3,7 +3,7 @@
 # N.B. set the path to the imagenet train + val data dirs
 set -e
 
-EXAMPLE=/home/tjcv/zlchen/Project/caffe/examples/imgsnet
+EXAMPLE=/home/tjcv/zlchen/Project/caffe/examples/imgsnet/Inception_v4
 DATA=/home/tjcv/zlchen/Project/AlexNet/disease-dataset
 TOOLS=/home/tjcv/zlchen/Project/caffe/build/tools
 
@@ -14,8 +14,8 @@ VAL_DATA_ROOT=/home/tjcv/zlchen/Project/AlexNet/disease-dataset/val/
 # already been resized using another tool.
 RESIZE=true
 if $RESIZE; then
-  RESIZE_HEIGHT=256
-  RESIZE_WIDTH=256
+  RESIZE_HEIGHT=299
+  RESIZE_WIDTH=299
 else
   RESIZE_HEIGHT=0
   RESIZE_WIDTH=0

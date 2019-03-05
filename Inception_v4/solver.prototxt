@@ -1,0 +1,17 @@
+net: "/home/tjcv/zlchen/Project/caffe/examples/imgsnet/Inception_v4/train_val.prototxt"
+test_iter: 160
+test_interval: 5000
+test_initialization: false
+display: 40
+average_loss: 40
+base_lr: 0.001
+lr_policy: "step"
+stepsize: 320000
+delta: 0.9
+gamma: 0.94
+max_iter: 20000
+type: "RMSProp"
+rms_decay: 0.9
+snapshot: 5000
+snapshot_prefix: "/home/tjcv/zlchen/Project/caffe/examples/imgsnet/Inception_v4/inception_v4_train"
+solver_mode: GPU

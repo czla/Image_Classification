@@ -83,3 +83,35 @@
 * `cd imgsnet/bvlc_alexnet`,建立文件`labels.txt`,按类别下标排序写出类名
 * 建立demo_classify.sh,测试命令：
     >/home/blabla/caffe/build/examples/cpp_classification/classification.bin  /home/blabla/bvlc_alexnet/deploy.prototxt  myiter_20000.caffemodle  /home/blabla/dataset_name/imagenet_mean.binaryproto  labels.txt  test.jpg
+
+## 7.如何从train_val.prototxt中得到配置文件deploy.prototxt?  
+* 复制train_val.prototxt  
+* 删除前面几层数据输入层(没有bottom字段的就是)，设置自己的data层为：  
+> name: "<the name in the train_val.prototxt>"  
+> input: "data"  
+> input_dim: 10  
+> input_dim: 3  
+> input_dim: 224  # or whatever the crop_size is in train_val.prototxt  
+> input_dim: 224  
+或  
+> name: "Inception_v4"  
+> layer {  
+> &emsp;   name: "data"  
+> &emsp;   type: "Input"  
+> &emsp;   top: "data"  
+> &emsp;   input_param {shape: {dim: 1 dim:3 dim:299 dim:299}}  
+>}  
+* 删除所有需要学习的参数，如：  
+    - blobs_lr  
+    - weight_decay  
+    - weight_filler  
+    - bias_filler  
+* 输出层num_output改为自己的类别数，对于求损失的层(bottom带有label)删除，如有需要自己添加softmax：  
+> layer {  
+> &emsp; name: "prob"  
+> &emsp; type: "Softmax"  
+> &emsp; bottom: "classifier"  
+> &emsp; top: "prob"  
+>}  
+#### 有无softmax输出对比  
+![softmax](../Inception_v4/softmax.png)
